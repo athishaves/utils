@@ -1,4 +1,4 @@
-# COMMAND LINE :    python filename.py INPUT_PDF OUTPUT_PDF [ [ page_a page_b ] ..... ]
+# COMMAND LINE :    python filename.py INPUT_PDF OUTPUT_PDF [ [ page_a1 page_b1 ] ..... [ page_an page_bn ] ]
 
         
 from PyPDF2 import PdfFileWriter, PdfFileReader
