@@ -1,0 +1,32 @@
+#! /bin/python3
+
+
+from PyPDF2 import PdfFileMerger, PdfFileWriter, PdfFileReader, filters
+import sys
+import os
+
+
+args = sys.argv
+print(str(args))
+
+if len(args) < 3:
+	print('USAGE : <filename> < * OR InputFiles.. > <OutputFile>')
+	exit()
+
+
+merger = PdfFileMerger()
+
+cur_directory = os.getcwd() + '/'
+
+# Add pdfs to Pdf File Merger
+
+for i in range (1,len(args)-1):
+	if args[i].endswith(".pdf"):
+		merger.append(PdfFileReader(args[i], "rb"))
+	
+
+# Write all the pdfs to output.pdf
+
+out_filename = args[-1] + ".pdf"
+
+merger.write( open(out_filename, 'wb') )
